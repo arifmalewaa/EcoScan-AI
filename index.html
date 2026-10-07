@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EcoScan AI — Smart Waste Detection</title>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+<header><div class="logo">♻️ EcoScan AI</div><div class="tag">Smart Waste Detection & Sorting</div></header>
+<main>
+<section class="hero">
+<h1>Scan Sampah dengan AI</h1>
+<p class="muted">Pengguna cukup membuka kamera dan melakukan scan. Model AI dimuat otomatis oleh website.</p>
+<div class="grid">
+<div class="card">
+<div class="camera"><video id="video" autoplay playsinline></video><div id="placeholder" class="placeholder">📷<br><br>Kamera belum aktif</div><div id="scanline" class="scanline"></div></div>
+<div class="controls"><button class="primary" id="start">📷 Mulai Kamera</button><button class="secondary" id="scan">🔍 Scan Sekarang</button><button class="danger" id="stop">⏹ Berhenti</button></div>
+<div class="ai"><b>🤖 AI SYSTEM: <span id="aiStatus" class="online">LOADING...</span></b><div id="modelStatus" class="muted" style="margin-top:6px">Model sedang dipersiapkan.</div></div>
+</div>
+<div class="card">
+<span id="status" class="badge">READY</span><b>HASIL ANALISIS AI</b>
+<div id="result" class="result">Belum ada hasil</div>
+<div class="muted">Confidence Score</div><div class="bar"><div id="fill" class="fill"></div></div><b id="confidence">—</b>
+<div id="tip" class="tip" style="margin-top:18px">💡 Setelah kamera aktif, tekan Scan Sekarang.</div>
+</div>
+</div>
+</section>
+
+<section class="card" style="margin-top:20px">
+<h2>🗑️ Smart Bin Recommendation</h2>
+<div class="bins">
+<div id="organic" class="bin"><div class="icon">🟢</div><b>Organik</b><br><small>Daun / makanan</small></div>
+<div id="plastic" class="bin"><div class="icon">🟡</div><b>Plastik</b><br><small>Botol / kemasan</small></div>
+<div id="paper" class="bin"><div class="icon">🔵</div><b>Kertas</b><br><small>Kertas / kardus</small></div>
+<div id="residue" class="bin"><div class="icon">⚫</div><b>Residu</b><br><small>Sampah lainnya</small></div>
+</div>
+</section>
+
+<div class="stats">
+<div class="stat"><div id="total" class="num">0</div><div class="label">TOTAL SCAN</div></div>
+<div class="stat"><div id="recyclable" class="num">0</div><div class="label">RECYCLABLE</div></div>
+<div class="stat"><div id="eco" class="num">0 XP</div><div class="label">ECO SCORE</div></div>
+<div class="stat"><div id="accuracy" class="num">—</div><div class="label">CONFIDENCE</div></div>
+</div>
+
+<section class="card"><h2>🕒 Riwayat Scan</h2><div id="history"><div class="muted">Belum ada riwayat.</div></div></section>
+</main>
+<footer>EcoScan AI • Prototype UTS Kecerdasan Buatan</footer>
+<script src="js/app.js"></script>
+</body>
+</html>
